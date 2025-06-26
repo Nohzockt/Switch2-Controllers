@@ -34,7 +34,7 @@ Some functions noted here may not be working right now so sorry
 - Python 3.7+ (tested in 3.12)
 - [bleak](https://pypi.org/project/bleak/) (`pip install bleak`)
 - [vgamepad](https://pypi.org/project/vgamepad/) (`pip install vgamepad`)
-- [ViGEmBus](https://vigem.org/download/) driver installed
+- [ViGEmBus](https://vigembusdriver.com) driver installed
 
 ### Usage
 
