@@ -1,8 +1,9 @@
-# Switch Bluetooth Controllers
+# NS2 Bluetooth Gamepad (Virtual Xbox 360 Mapper)
 
-A Python toolkit for scanning, connecting, and monitoring Nintendo Switch-compatible controllers (Pro Controller, Joy-Con, GameCube Controller) via Bluetooth. Designed to support controller detection, data monitoring, and feature exploration on multiple platforms using the [bleak](https://github.com/hbldh/bleak) Bluetooth library.
+A Python tool to scan, connect, and monitor Nintendo Switch-compatible controllers (Pro Controller, Joy-Con, GameCube Controller) via Bluetooth, and map their input to a virtual Xbox 360 gamepad (using [vgamepad](https://github.com/ramiSantina/vgamepad) and ViGEmBus on Windows). Designed for real-time controller-to-Xbox mapping, stick and button monitoring, and feature exploration using the [bleak](https://github.com/hbldh/bleak) Bluetooth library.<br>
+**Platform:** Windows only (for virtual gamepad support).
+
 Some functions noted here may not be working right now so sorry 
-
 
 > **Note:** This repository is intended as a universal base for all future tools and programs related to Nintendo Switch and compatible Bluetooth controllers. Contributions and extensions are welcome.
 
@@ -12,30 +13,33 @@ Some functions noted here may not be working right now so sorry
 
 ## Features
 
-- **Bluetooth Device Scanning**: Quickly discover Nintendo Switch-compatible controllers around you.
-- **Controller Monitoring**: View button presses and stick movements in real-time.
-- **Interactive Mode**: Toggle debug/verbose output, rumble, LED indicators, and show raw report data during runtime (best on Linux/macOS).
-- **Multi-platform Support**: Compatible with Windows(tested), Linux, and macOS(tested) (interactivity may be limited on Windows).
-- **Extensible Mapping**: Supports both Joy-Con, Pro Controller, and GameCube Controller mappings.
-- **Open for Extensions**: Designed to be a base for further Python tools for Nintendo and compatible Bluetooth controllers.
+- **Bluetooth Device Scanning**: Discover Nintendo Switch-compatible controllers.
+- **Controller-to-Xbox Mapping**: Button presses and analog sticks are mapped live to a virtual Xbox 360 controller (via ViGEmBus).
+- **Real-time Monitoring**: See button presses and stick movement as Xbox360 input.
+- **Simple Usage**: No configuration needed for supported controllers.
+- **Debug Output**: Optional debug/verbose output for troubleshooting.
+- **Open for Extensions**: Designed as a base for further Python tools for Nintendo and compatible Bluetooth controllers.
 
 ## Supported Controllers
 
-- Nintendo Switch Pro Controller
-- Nintendo Switch Joy-Con (L/R, only separately)
+- Nintendo Switch Pro Controller(not tested)
+- Nintendo Switch Joy-Con (L/R, only separately, not tested)
 - Nintendo GameCube Controller
 
 ## Quick Start
 
 ### Requirements
 
+- Windows 10/11
 - Python 3.7+ (tested in 3.12)
 - [bleak](https://pypi.org/project/bleak/) (`pip install bleak`)
+- [vgamepad](https://pypi.org/project/vgamepad/) (`pip install vgamepad`)
+- [ViGEmBus](https://vigem.org/download/) driver installed
 
 ### Usage
 
 ```bash
-python3 ns2-ble-monitor.py [options]
+python3 ns2-ble-cgamepad.py [options]
 ```
 
 **Options:**
@@ -43,21 +47,16 @@ python3 ns2-ble-monitor.py [options]
 - `-d`, `--debug` Enable debug output
 - `-v`, `--verbose` Enable verbose output
 
-### Interactive Controls (during runtime)
+### Controls
 
-- `r` Test rumble
-- `1`-`8` Set player LED
-- `d` Toggle debug mode
-- `v` Toggle verbose mode
-- `x` Show raw data (byte values)
 - `Ctrl+C` Exit
 
-> **Note:** Some interactive features may not work reliably on Windows due to OS limitations.
+> **Note:** Interactive controls (rumble, LED, raw data, etc.) are not available in this version. This tool focuses on gamepad mapping and live Xbox 360 input.
 
 ## Pairing Instructions
 
 1. **Put controller in pairing mode:**
-   - Pro Controller: Hold the small pairing button on top
+   - Pro Controller: Hold the small pairing button on the top
    - Joy-Con: Hold the pairing button on the side
    - GameCube Controller: Hold the pairing button on the adapter
 2. Ensure the controller is not already connected to another device.
@@ -65,10 +64,10 @@ python3 ns2-ble-monitor.py [options]
 
 ## Roadmap & Contribution
 
-- Get all features working
+- Improve stick normalization and deadzone handling
 - Add support for combined Joy-Con mode
-- Improved cross-platform keyboard interactivity
-- Integrate advanced rumble/LED scripting
+- Optional: More interactive features (rumble/LED)
+- Cross-platform support if virtual driver alternatives exist
 
 Contributions, issues, and feature requests are welcome!
 
