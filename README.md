@@ -1,6 +1,6 @@
 # NS2 Bluetooth Gamepad (Virtual Xbox 360 Mapper)
 
-A Python tool to scan, connect, and monitor Nintendo Switch-compatible controllers (Pro Controller, Joy-Con, GameCube Controller) via Bluetooth, and map their input to a virtual Xbox 360 gamepad (using [vgamepad](https://github.com/ramiSantina/vgamepad) and ViGEmBus on Windows). Designed for real-time controller-to-Xbox mapping, stick and button monitoring, and feature exploration using the [bleak](https://github.com/hbldh/bleak) Bluetooth library.<br>
+A Python tool to scan, connect, and monitor Nintendo Switch-compatible controllers (Pro Controller, Joy-Con, GameCube Controller) via Bluetooth, and map their input to a virtual Xbox 360 gamepad (using [vgamepad](https://github.com/yannbouteiller/vgamepad) and ViGEmBus on Windows). Designed for real-time controller-to-Xbox mapping, stick and button monitoring, and feature exploration using the [bleak](https://github.com/hbldh/bleak) Bluetooth library.<br>
 **Platform:** Windows only (for virtual gamepad support).
 
 Some functions noted here may not be working right now so sorry 
