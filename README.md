@@ -33,7 +33,7 @@ Some functions noted here may not be working right now so sorry
 - Windows 10/11
 - Python 3.7+ (tested in 3.12)
 - [bleak](https://pypi.org/project/bleak/) (`pip install bleak` tested in 0.21.1)
-- [vgamepad](https://pypi.org/project/vgamepad/) (`pip install vgamepad`)
+- [vgamepad](https://pypi.org/project/vgamepad/) (`pip install vgamepad` tested in 0.1.0)
 - [ViGEmBus](https://vigembusdriver.com) driver installed
 
 ### Usage
