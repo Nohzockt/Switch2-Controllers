@@ -134,9 +134,21 @@ def log_verbose(message):
     if verbose_mode:
         print(f"[VERBOSE] {message}")
 
-def extract_nintendo_info(manufacturer_data):
+def extract_nintendo_info(device):
+    if not device:
+        return None
+
+    # Bleak 0.22 prefers 'metadata', 1.0 prefers 'details'
+    if hasattr(device, "metadata") and device.metadata.get("manufacturer_data"):
+        manufacturer_data = device.metadata["manufacturer_data"]
+    elif hasattr(device, "details") and device.details["props"].get("ManufacturerData"):
+        manufacturer_data = device.details["props"]["ManufacturerData"]
+    else:
+        manufacturer_data = None
+
     if not manufacturer_data:
         return None
+
     for company_id, data in manufacturer_data.items():
         if not data or len(data) < 6:
             continue
@@ -158,24 +170,25 @@ def is_nintendo_device(device):
             'name': device.name
         }
         return True
-    if hasattr(device, "metadata") and device.metadata.get("manufacturer_data"):
-        nintendo_info = extract_nintendo_info(device.metadata["manufacturer_data"])
-        if nintendo_info:
-            pid = nintendo_info[1]
-            if pid == 0x7305:
-                pid = 0x2073
-            elif pid == 0x0920:
-                pid = 0x2009
-            elif pid == 0x0620:
-                pid = 0x2006
-            elif pid == 0x0720:
-                pid = 0x2007
-            nintendo_device_info[device.address] = {
-                'vendor_id': nintendo_info[0],
-                'product_id': pid,
-                'name': device.name
-            }
-            return True
+
+    nintendo_info = extract_nintendo_info(device)
+    if nintendo_info:
+        pid = nintendo_info[1]
+        if pid == 0x7305:
+            pid = 0x2073
+        elif pid == 0x0920:
+            pid = 0x2009
+        elif pid == 0x0620:
+            pid = 0x2006
+        elif pid == 0x0720:
+            pid = 0x2007
+        nintendo_device_info[device.address] = {
+            'vendor_id': nintendo_info[0],
+            'product_id': pid,
+            'name': device.name
+        }
+        return True
+
     return False
 
 def get_nintendo_device_name(device):
