@@ -158,8 +158,8 @@ def is_nintendo_device(device):
             'name': device.name
         }
         return True
-    if hasattr(device, "metadata") and device.metadata.get("manufacturer_data"):
-        nintendo_info = extract_nintendo_info(device.metadata["manufacturer_data"])
+    if hasattr(device, "details") and device.details.get("props") and device.details["props"].get("ManufacturerData"):
+        nintendo_info = extract_nintendo_info(device.details["props"]["ManufacturerData"])
         if nintendo_info:
             pid = nintendo_info[1]
             if pid == 0x7305:
@@ -367,8 +367,7 @@ async def handle_keyboard_input(client):
 async def find_characteristics(client):
     global output_characteristic, input_characteristic
     try:
-        services = await client.get_services()
-        for service in services:
+        for service in client.services:
             if service.uuid.lower() == NINTENDO_SERVICE_UUID.lower():
                 for char in service.characteristics:
                     props = char.properties
@@ -377,7 +376,7 @@ async def find_characteristics(client):
                     if ("write-without-response" in props or "write" in props) and not output_characteristic:
                         output_characteristic = char.uuid
         if not input_characteristic or not output_characteristic:
-            for service in services:
+            for service in client.services:
                 if service.uuid.lower() == HID_SERVICE_UUID.lower():
                     for char in service.characteristics:
                         props = char.properties
