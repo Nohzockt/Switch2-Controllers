@@ -66,9 +66,8 @@ python3 ns2-ble-cgamepad.py [options]
 
 ## Roadmap & Contribution
 
-- Improve stick normalization and deadzone handling
 - Add support for combined Joy-Con mode
-- Optional: More interactive features (rumble/LED)
+- Optional: More interactive features (LED)
 - Cross-platform support if virtual driver alternatives exist
 
 Contributions, issues, and feature requests are welcome!
