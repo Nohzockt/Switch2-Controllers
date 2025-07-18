@@ -168,8 +168,8 @@ last_raw_data = None
 
 # Calibration Defaults (Fallback, if not found)
 default_calibration = {
-    "LX": {"min": 746, "center": 1998, "max": 3249, "deadzone": 300},
-    "LY": {"min": 746, "center": 1998, "max": 3249, "deadzone": 300},
+    "LX": {"min": 746, "center": 1998, "max": 3249, "deadzone": 90},
+    "LY": {"min": 746, "center": 1998, "max": 3249, "deadzone": 90},
     "RX": {"min": 746, "center": 1998, "max": 3249, "deadzone": 300},
     "RY": {"min": 746, "center": 1998, "max": 3249, "deadzone": 300},
 }
