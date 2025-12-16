@@ -1,5 +1,7 @@
 # NS2 Bluetooth Gamepad (Virtual Xbox 360 Mapper)
 
+Please check out release v1.8 
+
 Current version of the ns2-ble-cgamepad.py is not working the "fix" doesn't work right now use older version(uploaded as ns2-bleak-022.2-vgamepad) before bleak 1.0 fix commit with bleak version 22.2
 
 A Python tool to scan, connect, and monitor Nintendo Switch-compatible controllers (Pro Controller, Joy-Con, GameCube Controller) via Bluetooth, and map their input to a virtual Xbox 360 gamepad (using [vgamepad](https://github.com/yannbouteiller/vgamepad) and ViGEmBus on Windows). Designed for real-time controller-to-Xbox mapping, stick and button monitoring, and feature exploration using the [bleak](https://github.com/hbldh/bleak) Bluetooth library.<br>
