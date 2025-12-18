@@ -112,7 +112,7 @@ GC_BUTTON_MAP = {
     SW2.A: "A", SW2.B: "B", SW2.X: "X", SW2.Y: "Y",
     SW2.PLUS: "Start", SW2.C: "C", SW2.HOME: "Home", SW2.CAPTURE: "Capture",
     SW2.ZL: "ZL", SW2.ZR: "Z", SW2.UP: "DPad-Up", SW2.DOWN: "DPad-Down",
-    SW2.LEFT: "DPad-Left", SW2.RIGHT: "DPad-Right", SW2.L: "L", SW2.R: "R"
+    SW2.LEFT: "DPad-Left", SW2.RIGHT: "DPad-Right",
 }
 
 XBOX_BUTTON_MAP = {
